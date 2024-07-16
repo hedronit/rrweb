@@ -33,7 +33,7 @@ yarn dev:firefox
 
 ## Export IndecedDB from Chrome
 
-From dev tools Sources -> Snippets
+Go to dev tools -> Sources -> Snippets
 ```bash
 var connection = indexedDB.open('events', 1);
 
