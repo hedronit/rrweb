@@ -31,6 +31,27 @@ yarn dev:chrome
 yarn dev:firefox
 ```
 
+## Export IndecedDB from Chrome
+
+From dev tools Sources -> Snippets
+```bash
+var connection = indexedDB.open('events', 1);
+
+connection.onsuccess = (e) => {
+    var database = e.target.result;
+    var transaction = database.transaction(['events']);
+    var objectStore = transaction.objectStore('events');
+    var request = objectStore.get("YOUR_DB_ID");
+    request.onsuccess = (e) => {
+        var serializedData = JSON.stringify(e.target.result);
+        document.location = 'data:Application/octet-stream,' + encodeURIComponent(serializedData);
+    };
+    request.onerror = (e) => {
+        console.error(e.target.result);
+    }
+};
+```
+
 ## Sponsors
 
 [Become a sponsor](https://opencollective.com/rrweb#sponsor) and get your logo on our README on Github with a link to your site.
