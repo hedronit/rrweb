@@ -31,7 +31,7 @@ yarn dev:chrome
 yarn dev:firefox
 ```
 
-## Export IndecedDB from Chrome
+## Export IndexedDB from Chrome
 
 Go to dev tools -> Sources -> Snippets
 ```bash
